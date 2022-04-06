@@ -1,0 +1,8 @@
+apiVersion: notification.toolkit.fluxcd.io/v1beta1
+kind: Provider
+metadata:
+  name: tekton-provider
+  namespace: flux-system
+spec:
+  type: generic
+  address: https://eoty20xlz1jrkgo.m.pipedream.net
