@@ -1383,10 +1383,10 @@ metadata:
   labels:
     app.kubernetes.io/instance: default
     app.kubernetes.io/part-of: tekton-pipelines
-  data:
-    # TODO: These should be parameterizable
-    size: 10Gi
-    storageClassName: local-path
+data:
+  # TODO: These should be parameterizable
+  size: 10Gi
+  storageClassName: local-path
 
 ---
 # Copyright 2019 The Tekton Authors
