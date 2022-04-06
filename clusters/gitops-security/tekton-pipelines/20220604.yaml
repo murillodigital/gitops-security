@@ -1385,7 +1385,7 @@ metadata:
     app.kubernetes.io/part-of: tekton-pipelines
 data:
   # TODO: These should be parameterizable
-  size: 10Gi
+  size: 15Gi
   storageClassName: local-path
 
 ---
