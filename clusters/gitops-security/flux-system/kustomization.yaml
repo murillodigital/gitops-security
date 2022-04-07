@@ -3,5 +3,5 @@ kind: Kustomization
 resources:
 - gotk-components.yaml
 - gotk-sync.yaml
-- TektonNotificationAlert.yaml
-- TektonNotificationProvider.yaml
+- tekton-notification-alert.yaml
+- tekton-notification-provider.yaml
