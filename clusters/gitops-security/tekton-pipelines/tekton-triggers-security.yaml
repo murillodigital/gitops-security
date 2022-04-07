@@ -23,6 +23,7 @@ metadata:
 subjects:
 - kind: ServiceAccount
   name: tekton-triggers-sa
+  namespace: default
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
