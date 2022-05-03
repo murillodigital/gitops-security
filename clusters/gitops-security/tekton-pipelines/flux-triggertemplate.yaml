@@ -6,10 +6,10 @@ metadata:
   namespace: tekton-pipelines
 spec:
   params:
-    - name: gitrevision
+    - name: revision
       description: The git revision
       default: staging
-    - name: gitrepositoryurl
+    - name: repository
       description: The git repository url
   resourcetemplates:
     - apiVersion: tekton.dev/v1beta1
