@@ -21,7 +21,7 @@ spec:
         pipelineRef:
           name: hello-goodbye
         params:
-          - name: github-repo-url
-            value: '$(tt.params.gitrepositoryurl)'
-          - name: github-repo-revision
-            value: '$(tt.params.gitrevision)'
+          - name: repository
+            value: '$(tt.params.repository)'
+          - name: revision
+            value: '$(tt.params.revision)'

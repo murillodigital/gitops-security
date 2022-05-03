@@ -5,10 +5,20 @@ metadata:
   name: hello-goodbye
   namespace: tekton-pipelines
 spec:
+  params:
+    - name: repository
+      type: string
+    - name: revision
+      type: string
   tasks:
     - name: hello
       taskRef:
         name: hello
+      params:
+        - name: repository
+          value: "$(params.repository)"
+        - name: revision
+          value: "$(params.revision)"
     - name: goodbye
       runAfter:
         - hello

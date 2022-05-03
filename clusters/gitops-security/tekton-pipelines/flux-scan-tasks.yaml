@@ -5,12 +5,19 @@ metadata:
   name: hello
   namespace: tekton-pipelines
 spec:
+  params:
+    - name: repository
+      type: string
+    - name: revision
+      type: string
   steps:
     - name: echo
       image: alpine
       script: |
         #!/bin/sh
-        echo "Hello World"  
+        echo "Hello World"
+        echo "$(params.repository)"
+        echo "$(params.revision)"
 ---
 apiVersion: tekton.dev/v1beta1
 kind: Task

@@ -5,4 +5,4 @@ metadata:
   namespace: flux-system
 spec:
   type: generic
-  address: https://eoty20xlz1jrkgo.m.pipedream.net
+  address: http://el-flux-tekton-eventlistener.tekton-pipelines.svc.cluster.local:8080
