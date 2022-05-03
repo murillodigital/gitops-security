@@ -15,13 +15,11 @@ spec:
     - apiVersion: tekton.dev/v1beta1
       kind: PipelineRun
       metadata:
-        generateName: greeter-app-
-        labels:
-          tekton.dev/pipeline: greeter-app-deploy
+        generateName: flux-scan-
       spec:
         serviceAccountName: pipeline
         pipelineRef:
-          name: greeter-app-deploy
+          name: hello-goodbye
         params:
           - name: github-repo-url
             value: '$(tt.params.gitrepositoryurl)'
