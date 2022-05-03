@@ -9,3 +9,5 @@ spec:
     - name: flux-tekton-triggerbinding
       bindings:
         - ref: flux-tekton-triggerbinding
+      template:
+        ref: flux-tekton-triggertemplate
