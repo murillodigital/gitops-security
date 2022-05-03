@@ -1,7 +1,7 @@
 apiVersion: triggers.tekton.dev/v1alpha1
 kind: EventListener
 metadata:
-  name: tekton-flux-eventlistener
+  name: flux-tekton-eventlistener
   namespace: tekton-pipelines
 spec:
   serviceAccountName: tekton-triggers-sa
