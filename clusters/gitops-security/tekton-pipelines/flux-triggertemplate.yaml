@@ -7,10 +7,8 @@ metadata:
 spec:
   params:
     - name: revision
-      description: The git revision
-      default: staging
     - name: repository
-      description: The git repository url
+    - name: namespace
   resourcetemplates:
     - apiVersion: tekton.dev/v1beta1
       kind: PipelineRun
@@ -25,3 +23,5 @@ spec:
             value: '$(tt.params.repository)'
           - name: revision
             value: '$(tt.params.revision)'
+          - name: namespace
+            value: '$(tt.params.namespace)'

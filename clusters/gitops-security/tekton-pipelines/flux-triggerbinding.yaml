@@ -9,3 +9,5 @@ spec:
     value: $(body.metadata.revision)
   - name: repository
     value: $(body.involvedObject.name)
+  - name: namespace
+    value: $(body.involvedObject.namespace)

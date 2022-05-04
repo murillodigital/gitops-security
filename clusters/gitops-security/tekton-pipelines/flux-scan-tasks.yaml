@@ -10,6 +10,8 @@ spec:
       type: string
     - name: revision
       type: string
+    - name: namespace
+      type: string
   steps:
     - name: echo
       image: ubuntu
@@ -20,10 +22,9 @@ spec:
         curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.18.0/bin/linux/amd64/kubectl
         chmod +x ./kubectl
         mv ./kubectl /bin/kubectl
-        kubectl version --client
-        kubectl get all -A
         echo "$(params.repository)"
         echo "$(params.revision)"
+        echo "$(params.namespace)"
 ---
 apiVersion: tekton.dev/v1beta1
 kind: Task

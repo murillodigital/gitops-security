@@ -10,6 +10,8 @@ spec:
       type: string
     - name: revision
       type: string
+    - name: namespace
+      type: string
   tasks:
     - name: hello
       taskRef:
@@ -19,6 +21,8 @@ spec:
           value: "$(params.repository)"
         - name: revision
           value: "$(params.revision)"
+        - name: namespace
+          value: "$(params.namespace)"
     - name: goodbye
       runAfter:
         - hello
