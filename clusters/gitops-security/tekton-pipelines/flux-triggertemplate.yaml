@@ -13,11 +13,11 @@ spec:
     - apiVersion: tekton.dev/v1beta1
       kind: PipelineRun
       metadata:
-        generateName: flux-scan-
+        generateName: scan-$(tt.params.repository)-
       spec:
         serviceAccountName: pipeline
         pipelineRef:
-          name: hello-goodbye
+          name: checkov-scan
         params:
           - name: repository
             value: '$(tt.params.repository)'
