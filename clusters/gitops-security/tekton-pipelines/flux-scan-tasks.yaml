@@ -2,7 +2,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  name: hello
+  name: checkov-scan
   namespace: tekton-pipelines
 spec:
   params:
@@ -35,17 +35,4 @@ spec:
         git fetch
         git checkout $(echo "$(params.revision)" | cut -d "/" -f 2)
         checkov --directory ~/repo
----
-apiVersion: tekton.dev/v1beta1
-kind: Task
-metadata:
-  name: goodbye
-  namespace: tekton-pipelines
-spec:
-  steps:
-    - name: goodbye
-      image: ubuntu
-      script: |
-        #!/bin/bash
-        echo "Goodbye World!"
 ...
