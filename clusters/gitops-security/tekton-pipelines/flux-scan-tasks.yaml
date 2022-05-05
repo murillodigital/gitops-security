@@ -18,13 +18,18 @@ spec:
       script: |
         #!/bin/sh
         apt-get update
-        apt-get -y install curl
+        apt-get -y install curl git
         curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.18.0/bin/linux/amd64/kubectl
         chmod +x ./kubectl
         mv ./kubectl /bin/kubectl
-        echo "$(params.repository)"
+        mkdir -p ~/.ssh
+        export SECRET_NAME=$(kubectl get GitRepository $(params.repository) -n $(params.namespace) -o jsonpath='{.spec.secretRef.name}')
+        export GIT_URL=$(kubectl get GitRepository $(params.repository) -n $(params.namespace) -o jsonpath='{.spec.url}')
+        kubectl get secret $SECRET_NAME -n $(params.namespace) -o jsonpath='{.data.identity}' | base64 --decode > ~/.ssh/id_rsa
+        kubectl get secret $SECRET_NAME -n $(params.namespace) -o jsonpath='{.data.identity\.pub}' | base64 --decode > ~/.ssh/id_rsa.pub
+        kubectl get secret $SECRET_NAME -n $(params.namespace) -o jsonpath='{.data.known_hosts}' | base64 --decode > ~/.ssh/known_hosts
+        git pull $GIT_URL
         echo "$(params.revision)"
-        echo "$(params.namespace)"
 ---
 apiVersion: tekton.dev/v1beta1
 kind: Task
