@@ -26,9 +26,12 @@ spec:
         export SECRET_NAME=$(kubectl get GitRepository $(params.repository) -n $(params.namespace) -o jsonpath='{.spec.secretRef.name}')
         export GIT_URL=$(kubectl get GitRepository $(params.repository) -n $(params.namespace) -o jsonpath='{.spec.url}')
         kubectl get secret $SECRET_NAME -n $(params.namespace) -o jsonpath='{.data.identity}' | base64 --decode > ~/.ssh/id_rsa
+        chmod 0400 ~/.ssh/id_rsa
         kubectl get secret $SECRET_NAME -n $(params.namespace) -o jsonpath='{.data.identity\.pub}' | base64 --decode > ~/.ssh/id_rsa.pub
         kubectl get secret $SECRET_NAME -n $(params.namespace) -o jsonpath='{.data.known_hosts}' | base64 --decode > ~/.ssh/known_hosts
-        git clone $GIT_URL
+        git clone $GIT_URL ~/repo
+        cd ~/repo
+        ls -lah
         echo "$(params.revision)"
 ---
 apiVersion: tekton.dev/v1beta1
