@@ -28,7 +28,7 @@ spec:
         kubectl get secret $SECRET_NAME -n $(params.namespace) -o jsonpath='{.data.identity}' | base64 --decode > ~/.ssh/id_rsa
         kubectl get secret $SECRET_NAME -n $(params.namespace) -o jsonpath='{.data.identity\.pub}' | base64 --decode > ~/.ssh/id_rsa.pub
         kubectl get secret $SECRET_NAME -n $(params.namespace) -o jsonpath='{.data.known_hosts}' | base64 --decode > ~/.ssh/known_hosts
-        git pull $GIT_URL
+        git clone $GIT_URL
         echo "$(params.revision)"
 ---
 apiVersion: tekton.dev/v1beta1
