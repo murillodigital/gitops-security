@@ -1,6 +1,6 @@
 # gitops-security
 
-GitOps Driver Static Security Scanning
+GitOps Driven Static Security Scanning
 
 This proof of concept integrates three tools:
 
